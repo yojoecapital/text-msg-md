@@ -141,11 +141,11 @@
             <h2 class="text-xl mt-4">Chat 📱</h2>
             <hr class="border-base-content"/>
             <input type="time" placeholder="Display time" class="input w-full" bind:value={time}/>
+            <input type="text" placeholder="Chat name" class="input w-full" bind:value={name}/>
             <input type="file" accept="image/*" class="file-input w-full" on:change={(event) => {
                 const files = event.currentTarget.files;
                 if (files) setSrc(files, (src_) => src = src_);
             }}/>
-            <input type="text" placeholder="Chat name" class="input w-full" bind:value={name}/>
             <div class="form-control">
                 <label class="label cursor-pointer">
                     <span class="label-text">Show avatars</span> 
@@ -156,10 +156,6 @@
             <hr class="border-base-content"/>
             {#each persons as person}
                 <input type="text" placeholder="Name" class="input w-full" bind:value={person.name}/>
-                <input type="file" accept="image/*" class="file-input w-full" on:change={(event) => {
-                    const files = event.currentTarget.files;
-                    if (files) setSrc(files, (src) => person.src = src);
-                }}/>
                 <select class="select w-full" bind:value={person.class}>
                     <option value="">Neutral</option>
                     <option class="text-primary" value="chat-bubble-primary">Primary</option>
@@ -170,6 +166,10 @@
                     <option class="text-warning" value="chat-bubble-warning">Warning</option>
                     <option class="text-error" value="chat-bubble-error">Error</option>
                 </select>
+                <input type="file" accept="image/*" class="file-input w-full" on:change={(event) => {
+                    const files = event.currentTarget.files;
+                    if (files) setSrc(files, (src) => person.src = src);
+                }}/>
                 <hr>
             {/each}
             <div class="grid grid-cols-2 gap-2">
