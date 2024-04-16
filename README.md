@@ -1,10 +1,6 @@
-# Yousef Suleiman Portfolio
+# Text Message Markdown
 
-Welcome to the GitHub repository for my personal portfolio website. This site serves as a showcase of my projects, skills, and professional experience.
-
-## Live Site
-
-Visit my portfolio [here](https://yojoecapital.github.io/portfolio).
+This is a svelte web application to simulate a texting conversation. It was built based on the features used in the original [React project](https://github.com/yojoecapital/texting-simulator).
 
 ## Technologies Used
 
@@ -15,7 +11,7 @@ Visit my portfolio [here](https://yojoecapital.github.io/portfolio).
 ## Run Locally
 
 ```bash
-git clone https://github.com/yojoecapital/portfolio.git
+git clone https://github.com/yojoecapital/text-msg-md.git
 npm install
 npm run dev
 ```
