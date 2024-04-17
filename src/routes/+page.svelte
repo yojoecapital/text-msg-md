@@ -75,7 +75,7 @@
 
 <div data-theme={$theme ? "dark" : "light"}>
     <div id="display" class="h-screen flex flex-col overflow-y-scroll">
-        <div class="flex-none justify-between w-full flex p-2 bg-base-300 sticky top-0 z-10">
+        <div class="flex-none justify-between w-full flex p-2 sticky top-0 z-10 {$theme ? "glass" : "bg-base-300"}">
             <Wifi/>
             <div class="grid gap-1 text-sm">
                 <span class="text-center">{to12(time)}</span>
@@ -158,6 +158,7 @@
                 <input type="text" placeholder="Name" class="input w-full" bind:value={person.name}/>
                 <select class="select w-full" bind:value={person.class}>
                     <option value="">Neutral</option>
+                    <option class="text-base-content" value="bg-base-300 text-inherit">Base</option>
                     <option class="text-primary" value="chat-bubble-primary">Primary</option>
                     <option class="text-secondary" value="chat-bubble-secondary">Secondary</option>
                     <option class="text-accent" value="chat-bubble-accent">Accent</option>
