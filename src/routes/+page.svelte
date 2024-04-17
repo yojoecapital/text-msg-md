@@ -13,7 +13,7 @@
     import Upload from "$lib/components/Upload.svelte";
     
     let position = 0;
-    let time = getDisplayTime();
+    let time = getDisplayTime(), displayTime = time;
     let src: string, name: string, avatars = true;
     let persons :Person[] = [{
         name: ""
@@ -26,8 +26,16 @@
         if (!element) window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
         else element?.scroll({ top: element.scrollHeight, behavior: "smooth" });
     }
+    function updateDisplayTime() {
+        if (position > 0 && position <= convo.length) {
+            const message = convo[position - 1];
+            if (typeof message !== "string") displayTime = message.time;
+
+        } else displayTime = time;
+    }
+    $: position, updateDisplayTime();
     function first() {
-        position = 1;
+        position = 0;
     } 
     function previous() {
         position = Math.max(position - 1, 0);
@@ -78,7 +86,7 @@
         <div class="flex-none justify-between w-full flex p-2 sticky top-0 z-10 {$theme ? "glass" : "bg-base-300"}">
             <Wifi/>
             <div class="grid gap-1 text-sm">
-                <span class="text-center">{to12(time)}</span>
+                <span class="text-center">{to12(displayTime)}</span>
                 <div class="avatar flex justify-center">
                     <div class="w-12 rounded-full">
                         <img alt="Message Profile" src={src ?? `${base}/icon.png`} />
