@@ -131,6 +131,7 @@
                     {/if}
                     </div>
             {/each}
+            <div class="w-full h-[10vh]"/>
         </div>
     </div>
     <div class="bg-base-300">
